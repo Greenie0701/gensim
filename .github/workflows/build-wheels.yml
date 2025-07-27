@@ -118,7 +118,7 @@ jobs:
           python -m pip install --upgrade numpy
 
       - name: Install newest numpy (windows-arm64)
-        if: ${{ (matrix.os == 'windows-11-arm')
+        if: ${{ (matrix.os == 'windows-11-arm') }}
         run: |
           python -m pip install numpy
 
