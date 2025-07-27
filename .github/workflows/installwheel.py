@@ -21,13 +21,16 @@ def main():
             arch = 'x86_64'
         elif machine in ('aarch64', 'arm64'):
             arch = 'aarch64'
-    elif system == 'Windows':  # Add explicit Windows handling
+    elif system == 'Windows':
         if machine in ('aarch64', 'arm64'):
             arch = 'arm64'
         else:
             arch = 'amd64'
-    else:
-        arch = 'amd64'
+     else:
+        if machine in ('aarch64', 'arm64'):
+            arch = 'arm64'
+        else:
+            arch = 'amd64'
 
     want = f'-cp{vi.major}{vi.minor}-'
     
