@@ -22,12 +22,12 @@ def main():
         elif machine in ('aarch64', 'arm64'):
             arch = 'aarch64'
     elif system == 'Windows':
-        if machine in ('x86_64', 'amd64'):
-            arch = 'amd64'
-        else machine in ('arm64', 'ARM64'):
+        if machine in ('aarch64', 'arm64', 'ARM64'):
             arch = 'arm64'
-    else:
-        arch = 'amd64'
+        else:
+            arch = 'amd64'
+     else:
+     arch = 'amd64'
 
     want = f'-cp{vi.major}{vi.minor}-'
     
