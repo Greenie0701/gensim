@@ -2,11 +2,7 @@ name: Build wheels
 
 on:
   push:
-    branches: [ develop ]
-  pull_request:
-    branches: [ develop ]
-  schedule:
-    - cron: '0 0 * * sun,wed'
+    branches: [ new_attempt2 ]
 
 jobs:
 
@@ -23,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-24.04, windows-2025, macos-latest, windows-11-arm]
+        os: [ windows-11-arm]
     steps:
 
       - name: Checkout
