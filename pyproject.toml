@@ -11,6 +11,8 @@ requires = [
     # Use NumPy >= 1.19.0 on Windows ARM64 (avoid oldest-supported-numpy here)
     "numpy>=1.19.0; python_version > '3.8' and sys_platform == 'win32' and (platform_machine == 'arm64' or platform_machine == 'aarch64')",
 
+    "oldest-supported-numpy; python_version > '3.8' and sys_platform == 'win32' and (platform_machine == 'x86_64' or platform_machine == 'AMD64')",
+
     # Use oldest-supported-numpy elsewhere (Linux/macOS, x86_64)
     "oldest-supported-numpy; python_version > '3.8' and (platform_machine != 'arm64' and platform_machine != 'aarch64' or sys_platform != 'win32')",
 
