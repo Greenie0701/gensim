@@ -1,8 +1,9 @@
 [build-system]
 requires = [
     "Cython>=0.29.32,<3.0.0",
-    "numpy==1.18.5; python_version=='3.8' and platform_machine not in 'arm64|aarch64'",
-    "oldest-supported-numpy; (python_version=='3.8' and platform_machine not in 'arm64|aarch64') and not (sys_platform == 'win32' and platform_machine == 'arm64')",
+    "numpy==1.18.5; python_version == '3.8' and platform_machine != 'arm64' and platform_machine != 'aarch64'",
+    "oldest-supported-numpy; python_version > '3.8' and platform_machine != 'arm64' and platform_machine != 'aarch64' and not (sys_platform == 'win32' and platform_machine == 'arm64')",
+    "oldest-supported-numpy; python_version == '3.8' and (platform_machine == 'arm64' or platform_machine == 'aarch64') and sys_platform != 'win32'",
     "numpy>=1.19.0; python_version > '3.8' and sys_platform == 'win32' and platform_machine == 'arm64'",
     "setuptools",
     "wheel"
