@@ -2,7 +2,7 @@ name: Build wheels
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ atempt2 ]
   pull_request:
     branches: [ develop ]
   schedule:
@@ -111,11 +111,16 @@ jobs:
       #
       # https://github.com/RaRe-Technologies/gensim/issues/3489
       #
-      - name: Install newest numpy (windows py3.10 only)
+      - name: Install newest numpy (windows-x64 py3.10 only)
         if: ${{ (matrix.os == 'windows-2025') && (matrix.python == '3.10') }}
         run: |
           python -m pip uninstall --yes oldest-supported-numpy
           python -m pip install --upgrade numpy
+
+      - name: Install newest numpy (windows-arm64)
+        if: ${{ (matrix.os == 'windows-11-arm')
+        run: |
+          python -m pip install numpy
 
       #
       # Avoid checking out the entire gensim repo to get just one file
