@@ -40,7 +40,7 @@ jobs:
           CIBW_SKIP: pp* cp36-* cp37-* cp313-* *-win32 *_i686 *-musllinux_* cp38-win_arm64 cp39-win_arm64 cp310-win_arm64
           CIBW_TEST_COMMAND: pytest -rfxEXs --durations=20 --disable-warnings --showlocals --pyargs gensim
           CIBW_TEST_REQUIRES: pytest testfixtures mock
-          CIBW_TEST_SKIP: cp38* cp39* cp310* cp311* cp313* *_aarch64 *_arm64 *_universal2
+          CIBW_TEST_SKIP: cp38* cp39* cp310* cp311* cp313* *_aarch64 *_universal2
           CIBW_BUILD_VERBOSITY: 3
 
       - name: Upload wheels as artifacts
@@ -57,7 +57,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-
 
           - {python: '3.11', os: windows-11-arm}
           - {python: '3.12', os: windows-11-arm}
