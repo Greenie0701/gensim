@@ -5,12 +5,12 @@ requires = [
     # order of magnitude slower, so avoid it for now.
     #
     "Cython>=0.29.32,<3.0.0",
-    # Simplified approach: use numpy for all Windows builds
+    # Use latest NumPy for all Windows builds (including ARM64)
     "numpy>=1.19.0; sys_platform == 'win32'",
-    # Gensim specific numpy constraint on CPython 3.8 non-Windows platforms
-    "numpy==1.18.5; python_version == '3.8' and sys_platform != 'win32' and platform_machine not in ('arm64', 'aarch64')",
+    # Gensim specific numpy constraint on CPython 3.8 non-Windows, non-ARM platforms
+    "numpy==1.18.5; python_version == '3.8' and sys_platform != 'win32' and platform_machine != 'arm64' and platform_machine != 'aarch64'",
     # Use oldest-supported-numpy for other non-Windows cases
-    "oldest-supported-numpy; sys_platform != 'win32' and (python_version > '3.8' or platform_machine in ('arm64', 'aarch64'))",
+    "oldest-supported-numpy; sys_platform != 'win32' and (python_version > '3.8' or platform_machine == 'arm64' or platform_machine == 'aarch64')",
     "setuptools",
     "wheel",
 ]
